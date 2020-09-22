@@ -68,7 +68,7 @@ class App extends Component {
     console.log(id)
     let updatedInvoices =  [...this.state.invoices].filter (i => i.id !== id)
     
-    this.setState({invoice : updatedInvoices});
+    this.setState({invoices : updatedInvoices});
   }
 
   render() {
