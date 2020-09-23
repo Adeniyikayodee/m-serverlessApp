@@ -7,7 +7,12 @@ import { faThumbsDown , faThumbsUp , faImage , faMoneyCheckAlt, faSearchDollar }
 class App extends Component {
   state = { 
       isLoading :false,
-      invoices : [ 
+      /*
+      
+      
+      SAMPLE DATA SCHEMA FOR DB
+      
+       invoices : [ 
       {
         "id" : "100",
         "Vendor" : "Access",
@@ -61,7 +66,7 @@ class App extends Component {
         "Type" : "Commercial",
         "Status" : "New"
       }
-    ]
+    ]*/
   }
 
   remove(id){
@@ -69,6 +74,12 @@ class App extends Component {
     let updatedInvoices =  [...this.state.invoices].filter (i => i.id !== id)
     
     this.setState({invoices : updatedInvoices});
+  }
+
+  async componentDidMount() {
+        const response = await fetch("     ....   ");
+        const body = await response.json();
+        this.setState({ invoices: body, isLoading: false });
   }
 
   render() {
@@ -79,7 +90,8 @@ class App extends Component {
 
 
     if (isLoading)
-      return(<div>loading...</div>)
+      return(<div>loading...</div>);
+
 
     let invoices =
     allinvoices.map( invoice =>
